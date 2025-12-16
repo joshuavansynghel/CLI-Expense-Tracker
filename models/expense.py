@@ -4,11 +4,13 @@ class Expense:
     _id_file = Path("expense_id_counter.txt") # file to store last expense id
     categories = set() 
 
-    def __init__(self, name, category, date):
+    def __init__(self, amount, name, category, date, note):
         self.id = self._next_id()
+        self.amount = amount
         self.name = name
         self.category = self._validate_category(category)
         self.date = date
+        self.note = note
 
     @classmethod
     def load_categories(cls, categories):

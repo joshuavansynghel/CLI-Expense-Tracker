@@ -1,7 +1,15 @@
 from models.expense import Expense
 import csv
 
-expenses = []
+class StorageHandler:
+    
+    def __init__(self, filepath="expenses.csv"):
+        self.filepath = filepath
+        self.expenses = load(filepath)
+
+    def load(self):
+        pass
+
 
 def load_expenses(filepath="expenses.csv"):
     try:

@@ -36,14 +36,18 @@ def add_expense_command(subparsers):
     add_parser.set_defaults(func=handle_add_expense)
 
 def handle_add_expense(args):
-    if args.date:
-        validate_date(args.date)
+    # if args.date:
+    #     validate_date(args.date)
 
     expense = Expense(
-        amount=args.amount
-        category=args.category
-        date=args.date
-        note=args.note
+        amount=args.amount,
+        category=args.category,
+        date=args.date,
+        note=args.note,
     )
+
+    storage = StorageHandler()
+    storage.add_expense(expense)
+    storage.save()
 
 
